@@ -23,7 +23,6 @@ Resources:
           Value: DB subnet
   MyDB:
     Type: "AWS::RDS::DBInstance"
-    DeletionPolicy: Snapshot
     Properties:
       DBInstanceIdentifier: oradb12c
       DBName: oradb12c
