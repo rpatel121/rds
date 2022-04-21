@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MYDBOption:
+    Type: "AWS::RDS::OptionGroup"
+    Properties: 
+      EngineName: oracle-se2
+      MajorEngineVersion: "12.1"
+      OptionConfigurations: 
+        - OptionName: XMLDB
+        - OptionName: APEX
+        - OptionName: APEX-DEV
+        - OptionVersion: 12.1
+  MyDBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties: 
+      DBSubnetGroupDescription: description
+      SubnetIds: 
+        - subnet-02e823a801a659dc9
+        - subnet-04ef3e17426cb7532
+      Tags: 
+        - 
+          Key: Name
+          Value: DB subnet
+  MyDB:
+    Type: "AWS::RDS::DBInstance"
+    DeletionPolicy: Snapshot
+    Properties:
+      DBInstanceIdentifier: oradb12c
+      DBName: oradb12c
+      DBInstanceClass: db.t3.small
+      AllocatedStorage: 30
+      DBSubnetGroupName: !Ref MyDBSubnetGroup
+      Engine: oracle-se2
+      EngineVersion: 12.1.0.2.v27
+      StorageType: gp2
+      MasterUsername: admin
+      MasterUserPassword: D0m0re1234#
+      PubliclyAccessible: True
+      LicenseModel: license-included
