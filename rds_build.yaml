@@ -27,6 +27,7 @@ Resources:
     Properties:
       DBInstanceIdentifier: oradb12c
       DBName: oradb12c
+      AllowMajorVersionUpgrade: true
       DBInstanceClass: db.t3.small
       AllocatedStorage: 30
       DBSubnetGroupName: !Ref MyDBSubnetGroup
