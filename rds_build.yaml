@@ -28,7 +28,7 @@ Resources:
       DBName: oradb12c
       AllowMajorVersionUpgrade: true
       DBInstanceClass: db.t3.small
-      AllocatedStorage: 30
+      AllocatedStorage: 40
       DBSubnetGroupName: !Ref MyDBSubnetGroup
       Engine: oracle-se2
       EngineVersion: 12.1.0.2.v27
