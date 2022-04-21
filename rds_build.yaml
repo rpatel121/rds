@@ -6,10 +6,10 @@ Resources:
       EngineName: oracle-se2
       MajorEngineVersion: "12.1"
       OptionConfigurations: 
-        - OptionName: XMLDB
         - OptionName: APEX
+          OptionVersion: 5.1.4.v1
         - OptionName: APEX-DEV
-        - OptionVersion: 12.1
+      OptionGroupDescription: "APEX install option in DB"
   MyDBSubnetGroup:
     Type: AWS::RDS::DBSubnetGroup
     Properties: 
@@ -37,3 +37,4 @@ Resources:
       MasterUserPassword: D0m0re1234#
       PubliclyAccessible: True
       LicenseModel: license-included
+      OptionGroupName: !Ref MYDBOption
