@@ -1,5 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
+  DbOra12cParameter:
+    Type: AWS::RDS::DBParameterGroup
+    Properties: 
+      Description: 'Oracle db parameters'
+      Family: 'oracle-se2-12.1'
+      Parameters: 
+        optimizer_features_enable: '12.1.0.1'
+        open_cursors: 400
+        optimizer_adaptive_features: false
   MYDBOption:
     Type: "AWS::RDS::OptionGroup"
     Properties: 
@@ -15,20 +24,21 @@ Resources:
     Properties: 
       DBSubnetGroupDescription: description
       SubnetIds: 
-        - subnet-02e823a801a659dc9
-        - subnet-04ef3e17426cb7532
+        - subnet-066e0a92996d907c7
+        - subnet-08b435a7a37b11ed0
       Tags: 
         - 
           Key: Name
           Value: DB subnet
   MyDB:
     Type: "AWS::RDS::DBInstance"
+    DeletionPolicy: Snapshot
     Properties:
       DBInstanceIdentifier: oradb12c
       DBName: oradb12c
-      AllowMajorVersionUpgrade: true
+      AllowMajorVersionUgrade: true
       DBInstanceClass: db.t3.small
-      AllocatedStorage: 40
+      AllocatedStorage: 30
       DBSubnetGroupName: !Ref MyDBSubnetGroup
       Engine: oracle-se2
       EngineVersion: 12.1.0.2.v27
@@ -38,3 +48,4 @@ Resources:
       PubliclyAccessible: True
       LicenseModel: license-included
       OptionGroupName: !Ref MYDBOption
+      DBParameterGroupName: !Ref DbOra12cParameter
