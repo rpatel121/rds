@@ -6,7 +6,6 @@ Resources:
       Description: 'Oracle db parameters'
       Family: 'oracle-se2-12.1'
       Parameters: 
-        optimizer_features_enable: '12.1.0.1'
         open_cursors: 400
         optimizer_adaptive_features: false
   MYDBOption:
@@ -38,7 +37,7 @@ Resources:
       DBName: oradb12c
       AllowMajorVersionUgrade: true
       DBInstanceClass: db.t3.small
-      AllocatedStorage: 30
+      AllocatedStorage: 20
       DBSubnetGroupName: !Ref MyDBSubnetGroup
       Engine: oracle-se2
       EngineVersion: 12.1.0.2.v27
