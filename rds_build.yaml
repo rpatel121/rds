@@ -1,13 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
-  DbOra12cParameter:
-    Type: AWS::RDS::DBParameterGroup
-    Properties: 
-      Description: 'Oracle db parameters'
-      Family: 'oracle-se2-12.1'
-      Parameters: 
-        open_cursors: 400
-        optimizer_adaptive_features: false
   MYDBOption:
     Type: "AWS::RDS::OptionGroup"
     Properties: 
@@ -23,8 +15,8 @@ Resources:
     Properties: 
       DBSubnetGroupDescription: description
       SubnetIds: 
-        - subnet-066e0a92996d907c7
-        - subnet-08b435a7a37b11ed0
+        - subnet-04544d8085e8dc5c0
+        - subnet-0d06d6b962b4f0f30
       Tags: 
         - 
           Key: Name
