@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MyDBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties: 
+      DBSubnetGroupDescription: description
+      SubnetIds: 
+        - subnet-09cd7addf3d4612ba
+        - subnet-02dd78e49a59c5b5b
+      Tags: 
+        - 
+          Key: Name
+          Value: 'DB subnetgroup'
+  MyDBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: vpc-0b4ab501fbf09f866
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0
+  MySQLDB:
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBInstanceIdentifier: Mysqldb
+      DBName: Mysqldb
+      DBInstanceClass: db.t3.small
+      AllowMajorVersionUpgrade: true
+      AllocatedStorage: '20'
+      Engine: mysql
+      EngineVersion: "5.7.37"
+      MasterUsername: admin
+      MasterUserPassword: 'D0m0re123#'
+      PubliclyAccessible: true
+      StorageType: 'gp2'
+      LicenseModel: 'general-public-license'
+      DBSubnetGroupName: !Ref MyDBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref MyDBSecurityGroup
