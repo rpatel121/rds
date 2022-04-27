@@ -5,8 +5,8 @@ Resources:
     Properties: 
       DBSubnetGroupDescription: description
       SubnetIds: 
-        - subnet-09cd7addf3d4612ba
-        - subnet-02dd78e49a59c5b5b
+        - subnet-0a267d1cc13591e39
+        - subnet-0f0620a104759110c
       Tags: 
         - 
           Key: Name
@@ -15,7 +15,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow http to client host
-      VpcId: vpc-0b4ab501fbf09f866
+      VpcId: vpc-002a34ac321708210
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 3306
