@@ -30,7 +30,8 @@ Resources:
       AllowMajorVersionUpgrade: true
       AllocatedStorage: '20'
       Engine: mysql
-      EngineVersion: "5.7.37"
+        #EngineVersion: "5.7.37"
+      EngineVersion: "8.0.28"
       MasterUsername: admin
       MasterUserPassword: 'D0m0re123#'
       PubliclyAccessible: true
