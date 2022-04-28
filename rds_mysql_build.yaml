@@ -5,8 +5,8 @@ Resources:
     Properties: 
       DBSubnetGroupDescription: description
       SubnetIds: 
-        - subnet-01ea46b6d332a8481 
-        - subnet-0c3fa88ab641ae963
+        - subnet-0669e681c5b69a76b 
+        - subnet-05b039fdf971e624e
       Tags: 
         - 
           Key: Name
@@ -15,7 +15,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow http to client host
-      VpcId: vpc-0cb1de0e7726c1506
+      VpcId: vpc-0c03b496fabd7fe08
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 3306
@@ -30,8 +30,8 @@ Resources:
       AllowMajorVersionUpgrade: true
       AllocatedStorage: '20'
       Engine: mysql
-        #EngineVersion: "5.7.37"
-      EngineVersion: "8.0.28"
+      EngineVersion: "5.7.37"
+        #EngineVersion: "8.0.28"
       MasterUsername: admin
       MasterUserPassword: 'D0m0re123#'
       PubliclyAccessible: true
